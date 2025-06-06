@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FanApp.ViewModels"
+             x:Class="FanApp.Views.NewAlbumPage"
+             x:DataType="viewModels:NewAlbumViewModel"
+             Shell.PresentationMode="ModalAnimated"
+             Title="Nowy album">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Zapisz"
+                     Command="{Binding SaveCommand}" />
+        <ToolbarItem Text="Anuluj"
+                     Command="{Binding CancelCommand}"
+                     Priority="1" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="20" Spacing="12">
+        <Entry Placeholder="Tytuł"
+               Text="{Binding TitleText}" />
+
+        <StackLayout Orientation="Horizontal" Spacing="4">
+            <Entry Placeholder="Rok"  Keyboard="Numeric"
+                   Text="{Binding ReleaseDate.Year}" WidthRequest="80" />
+            <Entry Placeholder="Miesiąc" Keyboard="Numeric"
+                   Text="{Binding ReleaseDate.Month}" WidthRequest="80"/>
+            <Entry Placeholder="Dzień" Keyboard="Numeric"
+                   Text="{Binding ReleaseDate.Day}" WidthRequest="80"/>
+        </StackLayout>
+
+        <Entry Placeholder="Okładka - URL"
+               Text="{Binding CoverUrl}" />
+    </StackLayout>
+</ContentPage>

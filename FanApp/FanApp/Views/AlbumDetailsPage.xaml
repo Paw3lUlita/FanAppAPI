@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:viewModels="clr-namespace:FanApp.ViewModels"
+             xmlns:models="clr-namespace:FanApp.FanClubApiClient"
+             x:Class="FanApp.Views.AlbumDetailsPage"
+             x:DataType="viewModels:AlbumDetailsViewModel"
+             Title="{Binding Title}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Edytuj"
+                     Command="{Binding EditCommand}" />
+        <ToolbarItem Text="Usuń"
+                     Command="{Binding DeleteCommand}" 
+                     Priority="1" />
+    </ContentPage.ToolbarItems>
+
+    <ScrollView Padding="20">
+        <StackLayout>
+            <Image Source="{Binding CoverUrl}" HeightRequest="200" Aspect="AspectFill"/>
+            <Label Text="{Binding TitleText}" FontSize="Large" Margin="0,10,0,0"/>
+            <Label Text="Data wydania:" FontAttributes="Bold"/>
+            <Label Text="{Binding ReleaseDate, StringFormat='{0:yyyy-MM-dd}'}"/>
+            <Label Text="Utwory:" FontAttributes="Bold" Margin="0,10,0,0"/>
+            <CollectionView ItemsSource="{Binding Songs}">
+                <CollectionView.ItemTemplate>
+                    <DataTemplate x:DataType="models:Songs">
+                        <Label Text="{Binding Title}" Padding="0,2"/>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

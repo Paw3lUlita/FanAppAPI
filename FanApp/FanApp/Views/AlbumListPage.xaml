@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FanApp.Views.AlbumListPage"
+             Title="Albumy"
+             Style="{StaticResource BasePageStyle}">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add" Command="{Binding AddItemCommand}" />
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="10">
+        <Label Text="Lista albumów" FontSize="Large" HorizontalOptions="Center"/>
+        <CollectionView ItemsSource="{Binding Items}">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Frame BorderColor="LightGray" HasShadow="True" CornerRadius="10" Margin="5">
+                        <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="Auto,*">
+                            <Image Grid.RowSpan="2" Grid.Column="0"
+                                   Source="{Binding CoverUrl}"
+                                   Aspect="AspectFill"
+                                   HeightRequest="100"
+                                   WidthRequest="100"
+                                   Margin="0,0,10,0"/>
+                            <Label Grid.Row="0" Grid.Column="1"
+                                   Text="{Binding Title}"
+                                   FontSize="Large"
+                                   FontAttributes="Bold"/>
+                            <Label Grid.Row="1" Grid.Column="1"
+                                   Text="{Binding ReleaseDate, StringFormat='{0:yyyy-MM-dd}'}"
+                                   FontSize="Medium"
+                                   TextColor="Gray"/>
+                        </Grid>
+                        <Frame.GestureRecognizers>
+                            <TapGestureRecognizer 
+                                NumberOfTapsRequired="1"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type ContentPage}}, Path=BindingContext.OpenDetailsCommand}"
+                                CommandParameter="{Binding .}" />
+                        </Frame.GestureRecognizers>
+                    </Frame>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+    </StackLayout>
+</ContentPage> 

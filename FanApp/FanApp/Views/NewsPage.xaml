@@ -1,0 +1,17 @@
+﻿<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FanApp.Views.NewsPage"
+             Title="Aktualności"
+             Style="{StaticResource BasePageStyle}">
+
+    <StackLayout Padding="10">
+        <Label Text="Aktualności zespołu" FontSize="Large" HorizontalOptions="Center"/>
+        <ListView>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <TextCell Text="{Binding Title}" Detail="{Binding PublishDate}" />
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+    </StackLayout>
+</ContentPage>

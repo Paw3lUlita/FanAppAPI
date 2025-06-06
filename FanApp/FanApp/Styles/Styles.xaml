@@ -1,0 +1,136 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ResourceDictionary
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="FanApp.Styles.Styles">
+
+    
+    <Color x:Key="ColorBackground">#121212</Color>
+    <Color x:Key="ColorPrimary">#4CAF50</Color>
+    <Color x:Key="ColorAccent">#FFC107</Color>
+    <Color x:Key="ColorTextPrimary">#FFFFFF</Color>
+    <Color x:Key="ColorTextSecondary">#B0B0B0</Color>
+    <Color x:Key="ColorCard">#1F1F1F</Color>
+    <Color x:Key="ColorBorder">#333333</Color>
+    <Color x:Key="ColorError">#F44336</Color>
+    <Color x:Key="ColorButtonPressed">#35A043</Color>
+    
+    
+    <ControlTemplate x:Key="BackgroundImageTemplate">
+        <Grid>
+
+            
+            <Image Source="Assets/band_background.jpg"
+                   Aspect="AspectFill"
+                   HorizontalOptions="Fill"
+                   VerticalOptions="Fill" />
+
+           
+            <BoxView Color="#80000000"
+                     HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand" />
+
+            
+            <ContentPresenter />
+        </Grid>
+    </ControlTemplate>
+
+
+    
+
+    <Style x:Key="BasePageStyle" TargetType="ContentPage">
+        <Setter Property="ControlTemplate" Value="{StaticResource BackgroundImageTemplate}" />
+    </Style>
+
+
+    
+    <Style TargetType="Shell">
+        
+        <Setter Property="FlyoutBackgroundColor" Value="{StaticResource ColorBackground}" />
+        
+        <Setter Property="BackgroundColor" Value="Transparent" />
+
+        <Setter Property="ForegroundColor" Value="{StaticResource ColorTextPrimary}" />
+        <Setter Property="Shell.TitleColor" Value="{StaticResource ColorTextPrimary}" />
+        <Setter Property="Shell.DisabledColor" Value="#888888" />
+        <Setter Property="Shell.UnselectedColor" Value="#CCCCCC" />
+    </Style>
+
+
+    
+    <Style TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource ColorTextPrimary}" />
+        <Setter Property="FontFamily" Value="Arial" />
+        <Setter Property="FontSize" Value="Medium" />
+    </Style>
+
+    
+    <Style x:Key="GlowLabel" TargetType="Label">
+        <Setter Property="TextColor" Value="{StaticResource ColorAccent}" />
+        <Setter Property="FontSize" Value="Large" />
+        <Setter Property="FontAttributes" Value="Bold" />
+    </Style>
+
+
+  
+    <Style TargetType="Button">
+        <Setter Property="BackgroundColor" Value="{StaticResource ColorPrimary}" />
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="CornerRadius" Value="12" />
+        <Setter Property="FontAttributes" Value="Bold" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="HeightRequest" Value="48" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    <VisualState x:Name="Pressed">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="{StaticResource ColorButtonPressed}" />
+                            <Setter Property="Scale" Value="0.97" />
+                        </VisualState.Setters>
+                    </VisualState>
+                    <VisualState x:Name="Disabled">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="#444" />
+                            <Setter Property="TextColor" Value="#AAA" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+
+   
+    <Style TargetType="Entry">
+        <Setter Property="TextColor" Value="White" />
+        <Setter Property="BackgroundColor" Value="#1E1E1E" />
+        <Setter Property="PlaceholderColor" Value="#777" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="HeightRequest" Value="40" />
+        <Setter Property="VisualStateManager.VisualStateGroups">
+            <VisualStateGroupList>
+                <VisualStateGroup x:Name="CommonStates">
+                    
+                    <VisualState x:Name="Focused">
+                        <VisualState.Setters>
+                            <Setter Property="BackgroundColor" Value="#2E2E2E" />
+                        </VisualState.Setters>
+                    </VisualState>
+                </VisualStateGroup>
+            </VisualStateGroupList>
+        </Setter>
+    </Style>
+
+
+   
+    <Style TargetType="Frame">
+        <Setter Property="BackgroundColor" Value="{StaticResource ColorCard}" />
+        <Setter Property="CornerRadius" Value="10" />
+        <Setter Property="Padding" Value="15" />
+        <Setter Property="Margin" Value="5" />
+        <Setter Property="HasShadow" Value="True" />
+        <Setter Property="BorderColor" Value="{StaticResource ColorBorder}" />
+    </Style>
+
+</ResourceDictionary>

@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms"
+       xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+       xmlns:views="clr-namespace:FanApp.Views"
+       x:Class="FanApp.AppShell"
+       FlyoutBackgroundColor="#111"
+       TitleColor="Black"
+       FlyoutBehavior="Flyout">
+
+    <!-- =======================  FLYOUT  ======================= -->
+    <FlyoutItem Title="Start" Icon="Assets/band_logo.png" Route="home">
+        <ShellContent ContentTemplate="{DataTemplate views:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Aktualności" Icon="Assets/news.png" Route="news">
+        <ShellContent ContentTemplate="{DataTemplate views:NewsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Koncerty" Icon="Assets/concerts.png" Route="concerts">
+        <ShellContent ContentTemplate="{DataTemplate views:ConcertsPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Albumy" Icon="Assets/albums.png" Route="albums">
+        <ShellContent ContentTemplate="{DataTemplate views:AlbumListPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Zespół" Icon="Assets/members.png" Route="members">
+        <ShellContent ContentTemplate="{DataTemplate views:MembersPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Galeria" Icon="Assets/gallery.png" Route="photos">
+        <ShellContent ContentTemplate="{DataTemplate views:PhotosPage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Klipy Video" Icon="Assets/gallery.png" Route="videos">
+        <ShellContent ContentTemplate="{DataTemplate views:VideosPage}" />
+    </FlyoutItem>
+
+    <!-- ============   HIDDEN ROUTES (navigation only)   ============ -->
+    <!-- CRUD – Albums  -->
+
+    <ShellContent Route="NewAlbumPage"
+                  ContentTemplate="{DataTemplate views:NewAlbumPage}"
+                  IsTabStop="False"
+                  IsVisible="False" />
+
+    <ShellContent Route="AlbumDetailsPage"
+                  ContentTemplate="{DataTemplate views:AlbumDetailsPage}"
+                  IsTabStop="False"
+                  IsVisible="False" />
+
+    <ShellContent Route="EditAlbumPage"
+                  ContentTemplate="{DataTemplate views:EditAlbumPage}"
+                  IsTabStop="False"
+                  IsVisible="False" />
+
+</Shell>

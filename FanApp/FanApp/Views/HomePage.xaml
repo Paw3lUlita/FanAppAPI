@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FanApp.Views.HomePage"
+             Title="Witamy!"
+             Style="{StaticResource BasePageStyle}">
+
+    <ScrollView>
+        <StackLayout Padding="20" Spacing="30">
+            <Image Source="Assets/band_logo.png" HeightRequest="180" HorizontalOptions="Center"/>
+
+            <Label Text="Oficjalna aplikacja fanowska zespołu"
+                   FontSize="Medium"
+                   TextColor="White"
+                   HorizontalOptions="Center"
+                   FontAttributes="Italic"/>
+
+            <Grid ColumnSpacing="20" RowSpacing="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <Button Grid.Row="0" Grid.Column="0" Text="Aktualności" ImageSource="news.png"
+                        Clicked="GoToNews" BackgroundColor="#333" TextColor="White"/>
+
+                <Button Grid.Row="0" Grid.Column="1" Text="Koncerty" ImageSource="concerts.png"
+                        Clicked="GoToConcerts" BackgroundColor="#333" TextColor="White"/>
+
+                <Button Grid.Row="1" Grid.Column="0" Text="Albumy" ImageSource="albums.png"
+                        Clicked="GoToAlbums" BackgroundColor="#333" TextColor="White"/>
+
+                <Button Grid.Row="1" Grid.Column="1" Text="Zespół" ImageSource="members.png"
+                        Clicked="GoToMembers" BackgroundColor="#333" TextColor="White"/>
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
